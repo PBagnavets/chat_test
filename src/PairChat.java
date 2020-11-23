@@ -1,4 +1,3 @@
-import java.io.BufferedReader;
 import java.io.PrintWriter;
 
 public class PairChat extends Thread {
@@ -17,13 +16,13 @@ public class PairChat extends Thread {
     public void run() {
         while (true) {
             try {
-                String input = null;
+
                 writer1.println(ChatTest.MESSAGE);
-                messageSent++;
+                increaseCount();
                 sleep(2500);
 
                 writer2.println(ChatTest.MESSAGE);
-                messageSent++;
+                increaseCount();
                 sleep(2500);
 
 
@@ -32,4 +31,12 @@ public class PairChat extends Thread {
             }
         }
     }
+
+    public static synchronized void increaseCount() {
+        messageSent++;
+    }
+    public static synchronized int getCount() {
+        return messageSent;
+    }
+
 }

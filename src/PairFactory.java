@@ -28,8 +28,8 @@ public class PairFactory extends Thread {
                 PairChat pairChat = new PairChat(writer1, writer2);
                 pairChat.start();
                 System.out.print("Users created: " + userNumber + "  ...  ");
-                System.out.println("Message sent: " + PairChat.messageSent);
-                sleep(50);
+                System.out.println("Message sent: " + PairChat.getCount());
+                sleep(100);
             }
         } catch (ConnectException e) {
             System.out.println("Server down");
